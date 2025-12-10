@@ -1,0 +1,440 @@
+body{
+    background-color: #F6F6FF;
+    margin: 25px 150px;
+}
+.main-header {
+    padding: 10px 120px; 
+    margin-bottom: 50px ;
+}
+.header-content-wrapper {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 0 auto;
+    background-color: #0E163B;
+    padding: 0px 30px;
+    border-radius: 10px;
+    height: 70px;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF; 
+}
+.app-logo {
+    margin-right: 10px;
+    height: 40px; 
+}
+.app-name{
+    font-size: 25px;
+}
+.icons_container{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items:center ; 
+}
+.burger-icon {
+    background-color: #00BFFF; 
+    padding: 8px;
+    border-radius: 5px;
+}
+.search-icon, .burger-icon {
+    height: 20px; 
+    width: 20px;
+    cursor: pointer;
+}
+
+
+
+.search-icon-container{
+    position: relative; 
+    display: flex;
+    align-items: center;
+}
+/* search bar */
+.search_box{
+    display: none;
+    position: absolute; 
+    right: 0; 
+    top: 60px; 
+    padding: 10px 10px; 
+    height: auto; 
+    width: 350px;
+    background-color: #0E163B;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 8px;
+    z-index: 10; 
+}
+
+.search_box:focus {
+    border: 2px solid #00BFFF;
+    outline: none; 
+}
+
+
+.results_container{
+    position: absolute;
+    right: 0; 
+    top: 105px; 
+    width: 370px; 
+    height: 400px; 
+    overflow-y: auto;
+    border-radius: 8px; 
+    z-index: 9; 
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+.search_result_card{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    color: white;
+    width: 350px;
+    background-color: #0E163B;
+    border-radius: 8px;
+}
+.city{
+    font-size: 20px;
+}
+.cuntry{
+    font-size: 15px;
+}
+.search_result_card:hover{
+    transform: translateY(1px);
+    transition-duration: 0.5s;
+}
+.search-icon {
+    
+}
+
+
+.city_weather_card {
+    padding: 10px 120px; 
+    margin-bottom: 30px;
+}
+
+.card-background-image {
+    background-image: url('/images/téléchargement (3) copy.jpg'); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+    padding: 30px;
+}
+
+.card-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px; 
+}
+
+.city-name {
+    font-size: 35px;
+    margin: 0;
+}
+
+.country-name {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.card-main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.current-temp {
+    font-size: 80px;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.current-details p {
+    margin: 3px 0;
+    font-size: 14px;
+    text-align: right;
+}
+
+.large-icon {
+    width: 60px;
+    height: 60px;
+}
+
+
+
+.days_weather_cards_container {
+    margin-top: 60px;
+    padding: 0 120px;
+    position: relative; 
+}
+
+
+.cards-wrapper {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    padding-bottom: 20px; 
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.cards-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.weather_day_card {
+    min-width: 180px; 
+    max-width: 180px;
+    background-color: #0E163B; 
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0; 
+    scroll-snap-align: start; 
+    transition: transform 0.3s ease; 
+}
+
+.day-name {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.day-icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.temp {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.condition {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    background-color: #0E163B;
+    border: none;
+    border-radius: 50%; 
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+}
+
+.scroll-button:hover {
+    background-color: #00BFFF; 
+}
+
+.scroll-button img {
+    width: 20px;
+    filter: invert(100%); 
+}
+
+.left-arrow {
+    /* Adjusted from 80px to 100px (120px new padding - 20px button overhang) */
+    left: 100px; 
+}
+
+.right-arrow {
+    /* Adjusted from 80px to 100px (120px new padding - 20px button overhang) */
+    right: 100px; 
+}
+
+.popular-cities-container {
+    padding: 50px 120px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #0E163B;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.city-card {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-image-overlay {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.large-card {
+    grid-column: 1 / span 2;
+    height: 350px;
+}
+
+.medium-card {
+    height: 300px;
+}
+
+.small-card {
+    height: 250px;
+}
+
+.card-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    color: #FFFFFF;
+    text-align: left;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+
+.card-info .day-name {
+    font-size: 16px;
+    margin: 0;
+}
+
+.card-info .date {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.weather-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-summary .card-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+.weather-summary .temp {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.weather-summary .condition {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.app-branding {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.app-logo-footer {
+    height: 50px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 255, 0.4));
+}
+
+.app-name-footer {
+    font-size: 28px;
+    color: #0E163B;
+    margin: 0;
+}
+
+.app-slogan {
+    font-size: 16px;
+    color: #4A4A68;
+    margin-top: 5px;
+}
+
+.main-footer {
+    background-color: #0E163B;
+    color: #FFFFFF;
+    padding: 0px 100px;
+}
+
+.footer-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    border-bottom: 2px solid #00BFFF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column a {
+    color: #B0B0C0;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.8;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #FFFFFF;
+}

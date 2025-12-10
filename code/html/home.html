@@ -1,38 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/code/css/home.css">
     <title>Pandora</title>
 </head>
+
 <body>
-    <header>
-        <div class="logo_container">
-            <img src="" alt="">
-            <h1>Pandora</h1>
+    <header class="main-header">
+    <div class="header-content-wrapper">
+        <div class="logo-area">
+            <img src="/icons/weather-svgrepo-com (1).svg" alt="Pandora Logo" class="app-logo">
+            <h1 class="app-name">PANDORA</h1>
         </div>
-        <div class="search_bar_container">
-            <img src="" alt="">
+        <div class="icons_container">
+            <div class="search-icon-container">
+                <input onchange="searchElement()" type="text" name="search_box" class="search_box" id="search_box" placeholder="Search">
+                <img onclick="serchFunction()" src="/icons/search-alt-svgrepo-com (1).svg" alt="Search" class="search-icon">
+                <div class="results_container">
+                    <div class="search_result_card">
+                        <p class="city">Tanger</p>
+                        <p class="cuntry">Morroco</p>
+                    </div>
+                    <div class="search_result_card">
+                        <p class="city">Tanger</p>
+                        <p class="cuntry">Morroco</p>
+                    </div>
+                    <div class="search_result_card">
+                        <p class="city">Tanger</p>
+                        <p class="cuntry">Morroco</p>
+                    </div>
+                    <div class="search_result_card">
+                        <p class="city">Tanger</p>
+                        <p class="cuntry">Morroco</p>
+                    </div>
+                </div> 
+            </div>
+            <nav class="navigation-menu-container">
+                <img src="/icons/burger-simple-svgrepo-com.svg" alt="Menu" class="burger-icon">
+            </nav>
         </div>
-        <div class="burger_icon_container">
-            <img src="" alt="">
+    </div>
+</header>
+<section class="city_weather_card">
+    <div class="card-background-image">
+        <div class="card-overlay">
+            <div class="card-header-info">
+                <div>
+                    <h2 class="city-name">New York</h2>
+                    <p class="country-name">United States</p>
+                </div>
+                <div class="current-weather-icon">
+                    <img src="/icons/moon-svgrepo-com.svg" alt="Clear Night" class="large-icon">
+                </div>
+            </div>
+            <div class="card-main-info">
+                <span class="current-temp">28°</span>
+                <div class="current-details">
+                    <p>↑ 32°</p>
+                    <p>↓ 21°</p>
+                    <p>⚑ 17km/h</p>
+                    <p>💧 67%</p>
+                </div>
+            </div>
         </div>
-    </header>
-    <section class="city_weather_card">
-    </section>
-    <section class="days_weather_cards_container">
-        <div class="weater_day_card"></div>
-        <div class="weater_day_card"></div>
-        <div class="weater_day_card"></div>
-        <div class="weater_day_card"></div>
-    </section>
+    </div>
+</section>
 
+<section class="days_weather_cards_container">
+    <div class="cards-wrapper" id="cardsWrapper">
+        <div class="weather_day_card">
+            <h3 class="day-name">WEDNESDAY</h3>
+            <p class="date">20 JUN 2022</p>
+            <img src="/icons/sun-svgrepo-com.svg" alt="Sunny" class="day-icon">
+            <span class="temp">29 °C</span>
+            <p class="condition">Sunny</p>
+        </div>
+        
+        <div class="weather_day_card">
+            <h3 class="day-name">THURSDAY</h3>
+            <p class="date">20 JUN 2022</p>
+            <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="day-icon">
+            <span class="temp">29 °C</span>
+            <p class="condition">Rainy</p>
+        </div>
+        
+        <div class="weather_day_card">
+            <h3 class="day-name">FRIDAY</h3>
+            <p class="date">20 JUN 2022</p>
+            <img src="/icons/cloud-sun-2-svgrepo-com.svg" alt="Partly Cloudy" class="day-icon">
+            <span class="temp">29 °C</span>
+            <p class="condition">Sunny</p>
+        </div>
+        
+        <div class="weather_day_card">
+            <h3 class="day-name">SATURDAY</h3>
+            <p class="date">20 JUN 2022</p>
+            <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="day-icon">
+            <span class="temp">29 °C</span>
+            <p class="condition">Rainy</p>
+        </div>
 
+        <div class="weather_day_card">
+            <h3 class="day-name">SUNDAY</h3>
+            <p class="date">23 JUN 2022</p>
+            <img src="/icons/cloud-sun-2-svgrepo-com.svg" alt="Partly Cloudy" class="day-icon">
+            <span class="temp">30 °C</span>
+            <p class="condition">Sunny</p>
+        </div>
+        <div class="weather_day_card">
+            <h3 class="day-name">MONDAY</h3>
+            <p class="date">24 JUN 2022</p>
+            <img src="/icons/sun-svgrepo-com.svg" alt="Sunny" class="day-icon">
+            <span class="temp">31 °C</span>
+            <p class="condition">Sunny</p>
+        </div>
+    </div>
+    <button id="scrollLeftBtn" class="scroll-button left-arrow">
+        <img src="/icons/arrow-left-square-svgrepo-com (1).svg" alt="Scroll Left">
+    </button>
+    <button id="scrollRightBtn" class="scroll-button right-arrow">
+        <img src="/icons/arrow-right-square-svgrepo-com (1).svg" alt="Scroll Right">
+    </button>
+</section>
+<section class="popular-cities-container">
+    <h2 class="section-title">THE WEATHER IN POPULAIRE CITY AROUND THE WORLD</h2>
+    
+    <div class="cities-grid">
+        
+        <div class="city-card large-card">
+            <div class="card-image-overlay" style="background-image: url('/images/london.jpg');">
+                <div class="card-info">
+                    <h3 class="day-name">SATURDAY</h3>
+                    <p class="date">20 JUN 2022</p>
+                    <div class="weather-summary">
+                        <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="card-icon">
+                        <span class="temp">29 °C</span>
+                        <p class="condition">Sunny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-card medium-card">
+            <div class="card-image-overlay" style="background-image: url('/images/newyork.jpg');">
+                <div class="card-info">
+                    <h3 class="day-name">SATURDAY</h3>
+                    <p class="date">20 JUN 2022</p>
+                    <div class="weather-summary">
+                        <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="card-icon">
+                        <span class="temp">29 °C</span>
+                        <p class="condition">Sunny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-card medium-card">
+            <div class="card-image-overlay" style="background-image: url('/images/istanbul.jpg');">
+                <div class="card-info">
+                    <h3 class="day-name">SATURDAY</h3>
+                    <p class="date">20 JUN 2022</p>
+                    <div class="weather-summary">
+                        <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="card-icon">
+                        <span class="temp">29 °C</span>
+                        <p class="condition">Sunny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-card small-card">
+            <div class="card-image-overlay" style="background-image: url('/images/moscow.jpg');">
+                <div class="card-info">
+                    <h3 class="day-name">SATURDAY</h3>
+                    <p class="date">20 JUN 2022</p>
+                    <div class="weather-summary">
+                        <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="card-icon">
+                        <span class="temp">29 °C</span>
+                        <p class="condition">Sunny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-card small-card">
+            <div class="card-image-overlay" style="background-image: url('/images/rome.jpg');">
+                <div class="card-info">
+                    <h3 class="day-name">SATURDAY</h3>
+                    <p class="date">20 JUN 2022</p>
+                    <div class="weather-summary">
+                        <img src="/icons/cloud-rain-svgrepo-com.svg" alt="Rainy" class="card-icon">
+                        <span class="temp">29 °C</span>
+                        <p class="condition">Sunny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="app-branding">
+        <img src="/icons/weather-svgrepo-com (1).svg" alt="Pandora Logo" class="app-logo-footer">
+        <h2 class="app-name-footer">PANDORA</h2>
+        <p class="app-slogan">A weather app you can trust, wherever you are.</p>
+    </div>
+</section>
 
-
-
-
+<footer class="main-footer">
+    <div class="footer-content-wrapper">
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Tech Used</h4>
+            <ul>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Connect</h4>
+            <ul>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Social Media</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
     <script src="/code/javaScript/home.js"></script>
 </body>
+
 </html>
