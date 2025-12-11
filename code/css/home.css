@@ -1,124 +1,143 @@
-body{
+body {
     background-color: #F6F6FF;
     margin: 25px 150px;
 }
+
 .main-header {
-    padding: 10px 120px; 
-    margin-bottom: 50px ;
+    padding: 10px 120px;
+    margin-bottom: 50px;
 }
+
 .header-content-wrapper {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    background-color: #0E163B;
+    background-color: #FFFFFF;
     padding: 0px 30px;
     border-radius: 10px;
     height: 70px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
 .logo-area {
     display: flex;
     align-items: center;
-    color: #FFFFFF; 
+    color: #0E163B;
 }
+
 .app-logo {
     margin-right: 10px;
-    height: 40px; 
+    height: 40px;
+
 }
-.app-name{
+
+.app-name {
     font-size: 25px;
 }
-.icons_container{
+
+.icons_container {
     display: flex;
     gap: 15px;
     justify-content: center;
-    align-items:center ; 
+    align-items: center;
 }
+
 .burger-icon {
-    background-color: #00BFFF; 
+    background-color: #00BFFF;
     padding: 8px;
     border-radius: 5px;
 }
-.search-icon, .burger-icon {
-    height: 20px; 
+
+.search-icon,
+.burger-icon {
+    height: 20px;
     width: 20px;
     cursor: pointer;
 }
 
 
 
-.search-icon-container{
-    position: relative; 
+.search-icon-container {
+    position: relative;
     display: flex;
     align-items: center;
 }
+
 /* search bar */
-.search_box{
+.search_box {
     display: none;
-    position: absolute; 
-    right: 0; 
-    top: 60px; 
-    padding: 10px 10px; 
-    height: auto; 
+    position: absolute;
+    right: 0;
+    top: 60px;
+    padding: 10px 10px;
+    height: auto;
     width: 350px;
-    background-color: #0E163B;
+    background-color: #FFFFFF;
     border: none;
-    color: #FFFFFF;
+    color: #0E163B;
     border-radius: 8px;
-    z-index: 10; 
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .search_box:focus {
     border: 2px solid #00BFFF;
-    outline: none; 
+    outline: none;
 }
 
 
-.results_container{
+.results_container {
     position: absolute;
-    right: 0; 
-    top: 105px; 
-    width: 370px; 
-    height: 400px; 
+    right: 0;
+    top: 105px;
+    width: 370px;
+    height: 400px;
     overflow-y: auto;
-    border-radius: 8px; 
-    z-index: 9; 
+    border-radius: 8px;
+    z-index: 9;
     display: none;
     flex-direction: column;
     gap: 15px;
 }
-.search_result_card{
+
+.search_result_card {
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding: 0px 10px;
-    color: white;
+    color: #0E163B;
     width: 350px;
-    background-color: #0E163B;
+    background-color: #FFFFFF;
     border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-.city{
+
+.city {
     font-size: 20px;
 }
-.cuntry{
+
+.cuntry {
     font-size: 15px;
 }
-.search_result_card:hover{
+
+.search_result_card:hover {
     transform: translateY(1px);
     transition-duration: 0.5s;
 }
+
 .search-icon {
-    
+    filter: invert(1);
 }
 
 
 .city_weather_card {
-    padding: 10px 120px; 
+    padding: 10px 120px;
     margin-bottom: 30px;
 }
 
 .card-background-image {
-    background-image: url('/images/téléchargement (3) copy.jpg'); 
+    background-image: url('/images/téléchargement (3) copy.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -129,7 +148,7 @@ body{
 }
 
 .card-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
     padding: 30px;
 }
 
@@ -137,7 +156,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
 
 .city-name {
@@ -178,18 +197,18 @@ body{
 .days_weather_cards_container {
     margin-top: 60px;
     padding: 0 120px;
-    position: relative; 
+    position: relative;
 }
 
 
 .cards-wrapper {
     display: flex;
     gap: 15px;
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
-    padding-bottom: 20px; 
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
     -ms-overflow-style: none;
-    scrollbar-width: none; 
+    scrollbar-width: none;
 }
 
 .cards-wrapper::-webkit-scrollbar {
@@ -197,16 +216,17 @@ body{
 }
 
 .weather_day_card {
-    min-width: 180px; 
+    min-width: 180px;
     max-width: 180px;
-    background-color: #0E163B; 
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #0E163B;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    flex-shrink: 0; 
-    scroll-snap-align: start; 
-    transition: transform 0.3s ease; 
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .day-name {
@@ -224,6 +244,7 @@ body{
     width: 50px;
     height: 50px;
     margin: 10px 0;
+    filter: invert(1);
 }
 
 .temp {
@@ -240,11 +261,11 @@ body{
 
 .scroll-button {
     position: absolute;
-    top: 50%; 
+    top: 50%;
     transform: translateY(-50%);
-    background-color: #0E163B;
+    background-color: #FFFFFF;
     border: none;
-    border-radius: 50%; 
+    border-radius: 50%;
     width: 45px;
     height: 45px;
     cursor: pointer;
@@ -252,27 +273,27 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s;
 }
 
 .scroll-button:hover {
-    background-color: #00BFFF; 
+    background-color: #00BFFF;
 }
 
 .scroll-button img {
     width: 20px;
-    filter: invert(100%); 
+    /* filter: invert(100%); removed for dark icons */
 }
 
 .left-arrow {
     /* Adjusted from 80px to 100px (120px new padding - 20px button overhang) */
-    left: 100px; 
+    left: 100px;
 }
 
 .right-arrow {
     /* Adjusted from 80px to 100px (120px new padding - 20px button overhang) */
-    right: 100px; 
+    right: 100px;
 }
 
 .popular-cities-container {
@@ -342,8 +363,9 @@ body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
 }
 
 .card-info .day-name {
@@ -403,22 +425,28 @@ body{
 }
 
 .main-footer {
-    background-color: #0E163B;
-    color: #FFFFFF;
-    padding: 0px 100px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #0E163B;
+    padding: 50px 120px;
 }
 
 .footer-content-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(14, 22, 59, 0.1);
+    padding-top: 40px;
 }
 
 .footer-column h4 {
     font-size: 18px;
     border-bottom: 2px solid #00BFFF;
     padding-bottom: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: #0E163B;
+    display: inline-block;
 }
 
 .footer-column ul {
@@ -431,10 +459,16 @@ body{
     color: #B0B0C0;
     text-decoration: none;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 2;
     transition: color 0.3s;
 }
 
 .footer-column a:hover {
-    color: #FFFFFF;
+    color: #00BFFF;
+}
+@media (max-width: 768px) {
+    body {
+    background-color: #F6F6FF;
+    margin: 25px 0px;
+}
 }
