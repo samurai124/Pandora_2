@@ -10,12 +10,6 @@ function serchFunction() {
     resultsContainer.style.display = "flex";
   }
 }
-
-const input = document.getElementById("search_box");
-input.addEventListener("input", (e) => {
-  console.log(e.target.value);
-});
-
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.getElementById('cardsWrapper');
   const scrollLeftBtn = document.getElementById('scrollLeftBtn');
@@ -33,49 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollRightBtn.addEventListener('click', () => scrollCards(1));
 });
 
-const apiKey = "6802086343806005e8c57c443f7d07ca";
 let latitude, longitude;
 let city, country, description;
 let temp, temp_max, temp_min, wind, humidity;
 
-const icons = [
-  { name: "Clouds", url: "/icons/cloud-sun-2-svgrepo-com.svg" },
-  { name: "Rain", url: "/icons/cloud-rain-svgrepo-com.svg" },
-  { name: "Clear", url: "/icons/sun-svgrepo-com.svg" },
-  { name: "Snow", url: "/icons/snow-crystal-2-svgrepo-com.svg" }
-];
 
-function getIcon(description) {
-  const desc = description.toLowerCase();
-  if (desc.includes("cloud")) return icons.find(i => i.name === "Clouds").url;
-  if (desc.includes("rain")) return icons.find(i => i.name === "Rain").url;
-  if (desc.includes("snow")) return icons.find(i => i.name === "Snow").url;
-  return icons.find(i => i.name === "Clear").url;
-}
 
-function getCountryName(code) {
-  return new Intl.DisplayNames(["en"], { type: "region" }).of(code);
-}
 
-function getLocation() {
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        resolve({ latitude, longitude });
-      },
-      (error) => reject(error),
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
-  });
-}
-
-async function fetchData(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Failed to fetch weather data");
-  return await res.json();
-}
 
 async function getWeather(lat, lon) {
   const data = await fetchData(
@@ -97,7 +55,7 @@ async function getWeather(lat, lon) {
 
 
 
-// Function to get current weather by city name
+
 async function getBycityWeather(cityName) {
   try {
     const data = await fetchData(
@@ -107,7 +65,8 @@ async function getBycityWeather(cityName) {
     return {
       city: data.name,
       temp: Math.round(data.main.temp),
-      description: data.weather[0].main
+      description: data.weather[0].main,
+      country: getCountryName(data.sys.country),
     };
   } catch (error) {
     console.error(`Error fetching weather for ${cityName}:`, error);
@@ -115,10 +74,12 @@ async function getBycityWeather(cityName) {
   }
 }
 
-// Function to update all city cards
+
 async function updateCityCards() {
   const cityCards = document.querySelectorAll(".city-card");
-
+  const today = new Date();
+  const date = today.toLocaleDateString("en-US"); 
+  document.querySelectorAll(".date").forEach(d=>d.textContent = date);
   for (const card of cityCards) {
     const cityName = card.querySelector(".day-name").textContent.trim();
     const weather = await getBycityWeather(cityName);
@@ -131,7 +92,6 @@ async function updateCityCards() {
       tempEl.textContent = `${weather.temp} °C`;
       conditionEl.textContent = weather.description;
 
-      // Update icon based on weather description
       const iconSrc = getIcon(weather.description);
 
       iconEl.src = iconSrc;
@@ -140,7 +100,7 @@ async function updateCityCards() {
   }
 }
 
-// Call the function to update all cards
+
 
 
 
@@ -199,8 +159,6 @@ async function getForecast(lat, lon) {
 
 function updateWeatherCards(forecastArray) {
   const cardsWrapper = document.getElementById("cardsWrapper");
-
-  // Clear existing cards
   cardsWrapper.innerHTML = "";
 
   forecastArray.forEach(day => {
@@ -239,5 +197,27 @@ async function initWeather() {
     console.error("Error:", err.message);
   }
 }
+async function addResult(city, temp, description, country) {
+  document.querySelector('.results_container').innerText = "";
+  document.querySelector('.results_container').insertAdjacentHTML('beforeend', `
+                    <a href="/code/html/resultPage.html?city=${city}"><div class="search_result_card">
+                        <p class="city">${city}</p>
+                        <p class="cuntry">${country}</p>
+                    </div></a>`)
 
+}
+async function searchElement() {
+  try {
+    const input = document.getElementById("search_box");
+    let { city, temp, description, country } = await getBycityWeather(input.value)
+    console.log(city, temp, description, country);
+    await addResult(city, temp, description, country);
+  } catch (error) {
+    document.querySelector('.results_container').innerText = "";
+    document.querySelector('.results_container').insertAdjacentHTML('beforeend', `
+                    <div class="search_result_card">
+                        <p class="city">No result found</p>
+                    </div>`)
+  }
+}
 initWeather();

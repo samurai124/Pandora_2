@@ -20,13 +20,11 @@
                 <input onchange="searchElement()" type="text" name="search_box" class="search_box" id="search_box" placeholder="Search">
                 <img onclick="serchFunction()" src="/icons/search-alt-svgrepo-com (1).svg" alt="Search" class="search-icon">
                 <div class="results_container">
-                    <div class="search_result_card">
-                        <p class="city">Tanger</p>
-                        <p class="cuntry">Morroco</p>
-                    </div>
-
                 </div> 
             </div>
+            <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode" style="margin-right: 15px;">
+                <img src="/icons/sun-svgrepo-com.svg" alt="Theme Toggle" class="theme-icon" id="theme-icon">
+            </button>
             <nav class="navigation-menu-container">
                 <img src="/icons/burger-simple-svgrepo-com.svg" alt="Menu" class="burger-icon">
             </nav>
@@ -179,6 +177,7 @@
         </div>
     </div>
 </footer>
+    <script src="/code/javaScript/utils.js"></script>
     <script src="/code/javaScript/home.js"></script>
 </body>
 
